@@ -35,41 +35,30 @@
       }
     </style>
 
-    <title>Deposit Balance</title>
+    <title>Transactions</title>
   </head>
   <body class="h-full">
     <div class="min-h-full">
-      <div class="bg-emerald-600 pb-32">
+      <div class="bg-sky-600 pb-32">
         <!-- Navigation -->
         <nav
-          class="border-b border-emerald-300 border-opacity-25 bg-emerald-600"
+          class="border-b border-sky-300 border-opacity-25 bg-sky-600"
           x-data="{ mobileMenuOpen: false, userMenuOpen: false }">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 justify-between">
               <div class="flex items-center px-2 lg:px-0">
                 <div class="hidden sm:block">
                   <div class="flex space-x-4">
-                    <!-- Current: "bg-emerald-700 text-white", Default: "text-white hover:bg-emerald-500 hover:bg-opacity-75" -->
+                    <!-- Current: "bg-sky-700 text-white", Default: "text-white hover:bg-sky-500 hover:bg-opacity-75" -->
                     <a
-                      href="./dashboard.html"
-                      class="text-white hover:bg-emerald-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
-                      aria-current="page"
-                      >Dashboard</a
+                      href="./customers.php"
+                      class="text-white hover:bg-sky-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
+                      >Customers</a
                     >
                     <a
-                      href="./deposit.html"
-                      class="bg-emerald-700 text-white rounded-md py-2 px-3 text-sm font-medium"
-                      >Deposit</a
-                    >
-                    <a
-                      href="./withdraw.html"
-                      class="text-white hover:bg-emerald-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
-                      >Withdraw</a
-                    >
-                    <a
-                      href="./transfer.html"
-                      class="text-white hover:bg-emerald-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
-                      >Transfer</a
+                      href="./transactions.php"
+                      class="bg-sky-700 text-white rounded-md py-2 px-3 text-sm font-medium"
+                      >Transactions</a
                     >
                   </div>
                 </div>
@@ -93,8 +82,8 @@
                         src="https://avatars.githubusercontent.com/u/831997"
                         alt="Ahmed Shamim Hasan Shaon" /> -->
                       <span
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100">
-                        <span class="font-medium leading-none text-emerald-700"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-100">
+                        <span class="font-medium leading-none text-sky-700"
                           >AS</span
                         >
                       </span>
@@ -126,7 +115,7 @@
                 <button
                   @click="mobileMenuOpen = !mobileMenuOpen"
                   type="button"
-                  class="inline-flex items-center justify-center rounded-md p-2 text-emerald-100 hover:bg-emerald-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500"
+                  class="inline-flex items-center justify-center rounded-md p-2 text-sky-100 hover:bg-sky-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sky-500"
                   aria-controls="mobile-menu"
                   aria-expanded="false">
                   <span class="sr-only">Open main menu</span>
@@ -172,55 +161,41 @@
             id="mobile-menu">
             <div class="space-y-1 pt-2 pb-3">
               <a
-                href="./dashboard.html"
-                class="text-white hover:bg-emerald-500 hover:bg-opacity-75 block rounded-md py-2 px-3 text-base font-medium"
-                aria-current="page"
-                >Dashboard</a
+                href="./customers.php"
+                class="text-white hover:bg-sky-500 hover:bg-opacity-75 block rounded-md py-2 px-3 text-base font-medium"
+                >Customers</a
               >
-
               <a
-                href="./deposit.html"
-                class="bg-emerald-700 text-white block rounded-md py-2 px-3 text-base font-medium"
-                >Deposit</a
-              >
-
-              <a
-                href="./withdraw.html"
-                class="text-white hover:bg-emerald-500 hover:bg-opacity-75 block rounded-md py-2 px-3 text-base font-medium"
-                >Withdraw</a
-              >
-
-              <a
-                href="./transfer.html"
-                class="text-white hover:bg-emerald-500 hover:bg-opacity-75 block rounded-md py-2 px-3 text-base font-medium"
-                >Transfer</a
+                href="./transactions.php"
+                class="text-white hover:bg-sky-500 hover:bg-opacity-75 block rounded-md py-2 px-3 text-base font-medium"
+                >Transactions</a
               >
             </div>
-            <div class="border-t border-emerald-700 pb-3 pt-4">
+            <div class="border-t border-sky-700 pb-3 pt-4">
               <div class="flex items-center px-5">
                 <div class="flex-shrink-0">
                   <!-- <img
                     class="h-10 w-10 rounded-full"
                     src="https://avatars.githubusercontent.com/u/831997"
-                    alt="" /> -->
+                    alt="Ahmed Shamim Hasan Shaon" /> -->
                   <span
-                    class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100">
-                    <span class="font-medium leading-none text-emerald-700"
+                    class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-sky-100">
+                    <span class="font-medium leading-none text-sky-700"
                       >AS</span
                     >
                   </span>
                 </div>
                 <div class="ml-3">
                   <div class="text-base font-medium text-white">
-                    Ahmed Shamim
+                    Ahmed Shamim Hasan Shaon
                   </div>
-                  <div class="text-sm font-medium text-emerald-300">
+                  <div class="text-sm font-medium text-sky-300">
                     ahmed@shamim.com
                   </div>
                 </div>
                 <button
                   type="button"
-                  class="ml-auto flex-shrink-0 rounded-full bg-emerald-600 p-1 text-emerald-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-600">
+                  class="ml-auto flex-shrink-0 rounded-full bg-sky-600 p-1 text-sky-200 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-sky-600">
                   <span class="sr-only">View notifications</span>
                   <svg
                     class="h-6 w-6"
@@ -239,7 +214,7 @@
               <div class="mt-3 space-y-1 px-2">
                 <a
                   href="#"
-                  class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-emerald-500 hover:bg-opacity-75"
+                  class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-sky-500 hover:bg-opacity-75"
                   >Sign out</a
                 >
               </div>
@@ -249,7 +224,7 @@
         <header class="py-10">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold tracking-tight text-white">
-              Deposit Balance
+              Transactions
             </h1>
           </div>
         </header>
@@ -257,57 +232,116 @@
 
       <main class="-mt-32">
         <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-          <div class="bg-white rounded-lg p-2">
-            <!-- Current Balance Stat -->
-            <dl
-              class="mx-auto grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4">
-              <div
-                class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2 bg-white px-4 py-10 sm:px-6 xl:px-8">
-                <dt class="text-sm font-medium leading-6 text-gray-500">
-                  Current Balance
-                </dt>
-                <dd
-                  class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
-                  $10,115,091.00
-                </dd>
+          <div class="bg-white rounded-lg py-8">
+            <!-- List of All The Transactions -->
+            <div class="px-4 sm:px-6 lg:px-8">
+              <div class="sm:flex sm:items-center">
+                <div class="sm:flex-auto">
+                  <p class="mt-2 text-sm text-gray-700">
+                    List of transactions made by the customers.
+                  </p>
+                </div>
               </div>
-            </dl>
+              <div class="mt-8 flow-root">
+                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div
+                    class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                    <table class="min-w-full divide-y divide-gray-300">
+                      <thead>
+                        <tr>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                            Customer Name
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            Amount
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900">
+                            Date
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-200 bg-white">
+                        <tr>
+                          <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                            Bruce Wayne
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
+                            +$10,240
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                            29 Sep 2023, 09:25 AM
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                            Al Nahian
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-red-600">
+                            -$2,500
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                            15 Sep 2023, 06:14 PM
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                            Muhammad Alp Arslan
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
+                            +$49,556
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                            03 Jul 2023, 12:55 AM
+                          </td>
+                        </tr>
 
-            <hr />
-            <!-- Deposit Form -->
-            <div class="sm:rounded-lg">
-              <div class="px-4 py-5 sm:p-6">
-                <h3 class="text-lg font-semibold leading-6 text-gray-800">
-                  Deposit Money To Your Account
-                </h3>
-                <div class="mt-4 text-sm text-gray-500">
-                  <form
-                    action="#"
-                    method="POST">
-                    <!-- Input Field -->
-                    <div class="relative mt-2 rounded-md">
-                      <div
-                        class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-0">
-                        <span class="text-gray-400 sm:text-4xl">$</span>
-                      </div>
-                      <input
-                        type="number"
-                        name="amount"
-                        id="amount"
-                        class="block w-full ring-0 outline-none text-xl pl-4 py-2 sm:pl-8 text-gray-800 border-b border-b-emerald-500 placeholder:text-gray-400 sm:text-4xl"
-                        placeholder="0.00"
-                        required />
-                    </div>
+                        <tr>
+                          <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                            Povilas Korop
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
+                            +$6,125
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                            07 Jun 2023, 10:00 PM
+                          </td>
+                        </tr>
 
-                    <!-- Submit Button -->
-                    <div class="mt-5">
-                      <button
-                        type="submit"
-                        class="w-full px-6 py-3.5 text-base font-medium text-white bg-emerald-600 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 rounded-lg sm:text-xl text-center">
-                        Proceed
-                      </button>
-                    </div>
-                  </form>
+                        <tr>
+                          <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                            Martin Joo
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm font-medium text-red-600">
+                            -$125
+                          </td>
+                          <td
+                            class="whitespace-nowrap px-2 py-4 text-sm text-gray-500">
+                            02 Feb 2023, 8:30 PM
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

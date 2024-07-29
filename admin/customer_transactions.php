@@ -35,7 +35,7 @@
       }
     </style>
 
-    <title>Transactions</title>
+    <title>Transactions of Al Nahian</title>
   </head>
   <body class="h-full">
     <div class="min-h-full">
@@ -51,13 +51,13 @@
                   <div class="flex space-x-4">
                     <!-- Current: "bg-sky-700 text-white", Default: "text-white hover:bg-sky-500 hover:bg-opacity-75" -->
                     <a
-                      href="./customers.html"
+                      href="./customers.php"
                       class="text-white hover:bg-sky-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
                       >Customers</a
                     >
                     <a
-                      href="./transactions.html"
-                      class="bg-sky-700 text-white rounded-md py-2 px-3 text-sm font-medium"
+                      href="./transactions.php"
+                      class="text-white hover:bg-sky-500 hover:bg-opacity-75 rounded-md py-2 px-3 text-sm font-medium"
                       >Transactions</a
                     >
                   </div>
@@ -161,12 +161,12 @@
             id="mobile-menu">
             <div class="space-y-1 pt-2 pb-3">
               <a
-                href="./customers.html"
+                href="./customers.php"
                 class="text-white hover:bg-sky-500 hover:bg-opacity-75 block rounded-md py-2 px-3 text-base font-medium"
                 >Customers</a
               >
               <a
-                href="./transactions.html"
+                href="./transactions.php"
                 class="text-white hover:bg-sky-500 hover:bg-opacity-75 block rounded-md py-2 px-3 text-base font-medium"
                 >Transactions</a
               >
@@ -224,7 +224,7 @@
         <header class="py-10">
           <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h1 class="text-3xl font-bold tracking-tight text-white">
-              Transactions
+              Transactions of Al Nahian
             </h1>
           </div>
         </header>
@@ -238,7 +238,7 @@
               <div class="sm:flex sm:items-center">
                 <div class="sm:flex-auto">
                   <p class="mt-2 text-sm text-gray-700">
-                    List of transactions made by the customers.
+                    List of transactions made by Al Nahian.
                   </p>
                 </div>
               </div>
@@ -252,7 +252,12 @@
                           <th
                             scope="col"
                             class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
-                            Customer Name
+                            Receiver Name
+                          </th>
+                          <th
+                            scope="col"
+                            class="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">
+                            Email
                           </th>
                           <th
                             scope="col"
@@ -273,6 +278,10 @@
                             Bruce Wayne
                           </td>
                           <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                            bruce@wayne.com
+                          </td>
+                          <td
                             class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
                             +$10,240
                           </td>
@@ -287,6 +296,10 @@
                             Al Nahian
                           </td>
                           <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                            alnahian@2003.com
+                          </td>
+                          <td
                             class="whitespace-nowrap px-2 py-4 text-sm font-medium text-red-600">
                             -$2,500
                           </td>
@@ -299,6 +312,10 @@
                           <td
                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
                             Muhammad Alp Arslan
+                          </td>
+                          <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                            alp@arslan.com
                           </td>
                           <td
                             class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
@@ -316,6 +333,10 @@
                             Povilas Korop
                           </td>
                           <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                            povilas@korop.com
+                          </td>
+                          <td
                             class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
                             +$6,125
                           </td>
@@ -329,6 +350,10 @@
                           <td
                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
                             Martin Joo
+                          </td>
+                          <td
+                            class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
+                            martin@joo.com
                           </td>
                           <td
                             class="whitespace-nowrap px-2 py-4 text-sm font-medium text-red-600">

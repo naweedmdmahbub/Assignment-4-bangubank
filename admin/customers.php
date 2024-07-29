@@ -51,12 +51,12 @@
                   <div class="flex space-x-4">
                     <!-- Current: "bg-sky-700 text-white", Default: "text-white hover:bg-sky-500 hover:bg-opacity-75" -->
                     <a
-                      href="./customers.html"
+                      href="./customers.php"
                       class="px-3 py-2 text-sm font-medium text-white rounded-md bg-sky-700"
                       >Customers</a
                     >
                     <a
-                      href="./transactions.html"
+                      href="./transactions.php"
                       class="px-3 py-2 text-sm font-medium text-white rounded-md hover:bg-sky-500 hover:bg-opacity-75"
                       >Transactions</a
                     >
@@ -161,12 +161,12 @@
             id="mobile-menu">
             <div class="pt-2 pb-3 space-y-1">
               <a
-                href="./customers.html"
+                href="./customers.php"
                 class="block px-3 py-2 text-base font-medium text-white rounded-md hover:bg-sky-500 hover:bg-opacity-75"
                 >Customers</a
               >
               <a
-                href="./transactions.html"
+                href="./transactions.php"
                 class="block px-3 py-2 text-base font-medium text-white rounded-md hover:bg-sky-500 hover:bg-opacity-75"
                 >Transactions</a
               >
@@ -245,7 +245,7 @@
                 </div>
                 <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                   <a
-                    href="./add_customer.html"
+                    href="./add_customer.php"
                     type="button"
                     class="block px-3 py-2 text-sm font-semibold text-center text-white rounded-md shadow-sm bg-sky-600 hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">
                     Add Customer
@@ -278,7 +278,7 @@
                         <div class="flex-auto min-w-0">
                           <p
                             class="text-sm font-semibold leading-6 text-gray-900">
-                            <a href="./customer_transactions.html">
+                            <a href="./customer_transactions.php">
                               <span
                                 class="absolute inset-x-0 bottom-0 -top-px"></span>
                               Al Nahian
@@ -286,7 +286,7 @@
                           </p>
                           <p class="flex mt-1 text-xs leading-5 text-gray-500">
                             <a
-                              href="./customer_transactions.html"
+                              href="./customer_transactions.php"
                               class="relative truncate hover:underline"
                               >alnahian@2003.com</a
                             >
@@ -313,7 +313,7 @@
                         <div class="flex-auto min-w-0">
                           <p
                             class="text-sm font-semibold leading-6 text-gray-900">
-                            <a href="./customer_transactions.html">
+                            <a href="./customer_transactions.php">
                               <span
                                 class="absolute inset-x-0 bottom-0 -top-px"></span>
                               Muntaser Muttaqi
@@ -321,7 +321,7 @@
                           </p>
                           <p class="flex mt-1 text-xs leading-5 text-gray-500">
                             <a
-                              href="./customer_transactions.html"
+                              href="./customer_transactions.php"
                               class="relative truncate hover:underline"
                               >muntaser@muttaqi.com</a
                             >
@@ -347,7 +347,7 @@
                         <div class="flex-auto min-w-0">
                           <p
                             class="text-sm font-semibold leading-6 text-gray-900">
-                            <a href="./customer_transactions.html">
+                            <a href="./customer_transactions.php">
                               <span
                                 class="absolute inset-x-0 bottom-0 -top-px"></span>
                               Povilas Korop
@@ -355,7 +355,7 @@
                           </p>
                           <p class="flex mt-1 text-xs leading-5 text-gray-500">
                             <a
-                              href="./customer_transactions.html"
+                              href="./customer_transactions.php"
                               class="relative truncate hover:underline"
                               >povilas@korop.com</a
                             >
@@ -382,7 +382,7 @@
                         <div class="flex-auto min-w-0">
                           <p
                             class="text-sm font-semibold leading-6 text-gray-900">
-                            <a href="./customer_transactions.html">
+                            <a href="./customer_transactions.php">
                               <span
                                 class="absolute inset-x-0 bottom-0 -top-px"></span>
                               Laravel Framework
@@ -390,7 +390,7 @@
                           </p>
                           <p class="flex mt-1 text-xs leading-5 text-gray-500">
                             <a
-                              href="./customer_transactions.html"
+                              href="./customer_transactions.php"
                               class="relative truncate hover:underline"
                               >laravel@framework.com</a
                             >
@@ -417,7 +417,7 @@
                         <div class="flex-auto min-w-0">
                           <p
                             class="text-sm font-semibold leading-6 text-gray-900">
-                            <a href="./customer_transactions.html">
+                            <a href="./customer_transactions.php">
                               <span
                                 class="absolute inset-x-0 bottom-0 -top-px"></span>
                               Jeffrey Way
@@ -425,7 +425,7 @@
                           </p>
                           <p class="flex mt-1 text-xs leading-5 text-gray-500">
                             <a
-                              href="./customer_transactions.html"
+                              href="./customer_transactions.php"
                               class="relative truncate hover:underline"
                               >jeffrey@way.com</a
                             >
@@ -453,7 +453,7 @@
                         <div class="flex-auto min-w-0">
                           <p
                             class="text-sm font-semibold leading-6 text-gray-900">
-                            <a href="./customer_transactions.html">
+                            <a href="./customer_transactions.php">
                               <span
                                 class="absolute inset-x-0 bottom-0 -top-px"></span>
                               Alex Garrett-Smith
@@ -461,7 +461,7 @@
                           </p>
                           <p class="flex mt-1 text-xs leading-5 text-gray-500">
                             <a
-                              href="./customer_transactions.html"
+                              href="./customer_transactions.php"
                               class="relative truncate hover:underline"
                               >alex@smith.com</a
                             >
