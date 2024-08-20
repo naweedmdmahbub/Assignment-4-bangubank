@@ -1,3 +1,53 @@
+<?php
+    require 'helpers.php';
+    $errors = [];
+    $name = $emai = $password = '';
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+      // dd($_SERVER);
+      if(empty($_POST['name'])){
+        $errors['name'] = 'Name is required';
+      } else {
+        $name = sanitize($_POST['name']);
+      }
+
+      if(empty($_POST['email'])){
+        $errors['email'] = 'Email is required';
+      } elseif(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = 'Please provide a valid email';
+      } else {        
+        $email = sanitize($_POST['email']);
+      }
+
+      if(empty($_POST['password'])){
+        $errors['password'] = 'Please provide a password';
+      } elseif(strlen($_POST['password']) <6) {
+        $errors['password'] = 'Password must contain be at least 6 characters';
+      } else {        
+        $password = sanitize($_POST['password']);
+      }
+
+      if(empty($errors)){
+        $file = "./json/users.json";
+        $data_array = [];
+        if (file_exists($file) && filesize($file) > 0) {
+          $json_data = file_get_contents($file);
+          $data_array = json_decode($json_data, true);
+        }
+        $data = [
+          'name' => $_POST['name'],
+          'email' => $_POST['email'],
+          'password' => $_POST['password'],
+          'role' => 'customer',
+        ];
+        $data_array[] = $data;
+        // dd($data);
+        file_put_contents($file, json_encode($data_array, JSON_PRETTY_PRINT));
+        header('Location: login.php');
+      }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html
   class="h-full bg-white"
@@ -41,22 +91,11 @@
 
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
         <div class="px-6 py-12 bg-white shadow sm:rounded-lg sm:px-12">
-          <form
-            class="space-y-6"
-            action="#"
-            method="POST">
+          <form class="space-y-6" action="register.php" method="POST">
             <div>
-              <label
-                for="name"
-                class="block text-sm font-medium leading-6 text-gray-900"
-                >Name</label
-              >
+              <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
               <div class="mt-2">
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
+                <input id="name" name="name" type="text" required
                   class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-emerald-600 sm:text-sm sm:leading-6 p-2" />
               </div>
             </div>
