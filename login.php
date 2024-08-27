@@ -1,53 +1,21 @@
 <?php
-    require 'helpers.php';
-    $errors = [];
-    $emai = $password = '';
-    session_start();
-    if($_SERVER['REQUEST_METHOD'] === 'POST'){
-        if(empty($_POST['email'])){
-            $errors['email'] = 'Email is required';
-        } elseif(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'Please provide a valid email';
-        } else {        
-            $email = sanitize($_POST['email']);
-        }
-
-        if(empty($_POST['password'])){
-            $errors['password'] = 'Please provide a password';
-        } elseif(strlen($_POST['password']) <6) {
-            $errors['password'] = 'Password must contain be at least 6 characters';
-        } else {        
-            $password = sanitize($_POST['password']);
-        }
-
-        if(empty($errors)){
-            $file = "./json/users.json";
-            $data_array = [];
-            if (file_exists($file) && filesize($file) > 0) {
-                $json_data = file_get_contents($file);
-                $data_array = json_decode($json_data, true);
-            }
-            $data = [
-                'email' => $_POST['email'],
-                'password' => $_POST['password'],
-            ];
-            $authenticated_user = null;
-            foreach ($data_array as $user) {
-                if ($user['email'] === $data['email'] && $user['password'] === $data['password']) {
-                    $authenticated_user = $user;
-                    break;
-                }
-            }
-            if ($authenticated_user) {
-                $_SESSION['user'] = $authenticated_user;
-                header('Location: dashboard.php');
-                exit;
-            } else {
-                $errors['auth'] = 'Email & Password do not match';
-            }
-        }
+  require 'helpers.php';
+  require 'Controllers/Customer.php';
+  $errors = [];
+  $emai = $password = '';
+  session_start();
+  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $customer = new Customer();
+    $response = $customer->authenticate($_POST);
+    if( isset($response['authenticated_user']) && $response['authenticated_user'] !== NULL) {
+      $_SESSION['user'] = $response['authenticated_user'];
+      // dd($_SESSION['user']);
+      header('Location: customer/dashboard.php');
+      exit;
+    } else {
+      $errors = $response['errors'];
     }
-    
+  }
 ?>
 
 <!DOCTYPE html>
@@ -92,6 +60,15 @@
       </div>
 
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+        <?php if (isset($errors['email'])  ) : ?>
+            <p class="text-md text-red-600 my-2 mx-4" id="email-error"><?= $errors['email']; ?></p>
+        <?php endif; ?>
+        <?php if (isset($errors['password'])  ) : ?>
+            <p class="text-md text-red-600 my-2 mx-4" id="password-error"><?= $errors['password']; ?></p>
+        <?php endif; ?>
+        <?php if (isset($errors['auth'])  ) : ?>
+            <p class="text-md text-red-600 my-2 mx-4" id="auth-error"><?= $errors['auth']; ?></p>
+        <?php endif; ?>
         <div class="px-6 py-12 bg-white shadow sm:rounded-lg sm:px-12">
           <form
             class="space-y-6"

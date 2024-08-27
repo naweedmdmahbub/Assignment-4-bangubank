@@ -1,11 +1,28 @@
+<?php
+session_start();
+require '../helpers.php';
+
+$base_url = get_base_url();
+// dd($base_url);
+// dd($_SESSION);
+if (!isset($_SESSION['user'])) {
+  header('Location: ../login.php');
+  exit;
+} else {
+  $user = $_SESSION['user'];
+  // dd($_SESSION);
+    // dd($_SERVER);
+}
+?>
+
 <!DOCTYPE html>
 <html
   class="h-full bg-gray-100"
   lang="en">
   <head>
-  <?php 
-    include '../layout/header.php';
-  ?>
+    <?php 
+      include '../layout/header.php';
+    ?>
 
     <title>Dashboard</title>
   </head>
