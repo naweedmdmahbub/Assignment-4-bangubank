@@ -33,4 +33,16 @@ function get_base_url() {
     $baseUri = str_replace(basename($requestUri), '', $requestUri);
     return $domainName . $baseUri;
 }
+
+function save_json_data($filename, $data) {
+    $file = $filename;
+    $data_array = [];
+    if (file_exists($file) && filesize($file) > 0) {
+      $json_data = file_get_contents($file);
+      $data_array = json_decode($json_data, true);
+    }
+    $data_array[] = $data;
+    file_put_contents($file, json_encode($data_array, JSON_PRETTY_PRINT));
+}
+
 ?>

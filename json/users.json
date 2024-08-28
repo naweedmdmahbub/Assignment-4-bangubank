@@ -1,8 +1,8 @@
 [
     {
-        "name": "Amber Larson",
-        "email": "laga@mailinator.com",
-        "password": "Pa$$w0rd!",
-        "role": "customer"
-    }
+        "name": "Naweed Mahbub",
+        "email": "naweed@gmail.com",
+        "password": "12345678",
+        "role": "admin"
+    },
 ]

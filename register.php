@@ -27,21 +27,14 @@
       }
 
       if(empty($errors)){
-        $file = "./json/users.json";
-        $data_array = [];
-        if (file_exists($file) && filesize($file) > 0) {
-          $json_data = file_get_contents($file);
-          $data_array = json_decode($json_data, true);
-        }
+        $filename = "./json/users.json";
         $data = [
           'name' => $_POST['name'],
           'email' => $_POST['email'],
           'password' => $_POST['password'],
           'role' => 'customer',
         ];
-        $data_array[] = $data;
-        // dd($data);
-        file_put_contents($file, json_encode($data_array, JSON_PRETTY_PRINT));
+        save_json_data($filename, $data);
         header('Location: login.php');
       }
     }
