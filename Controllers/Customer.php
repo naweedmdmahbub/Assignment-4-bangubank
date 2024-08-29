@@ -41,6 +41,7 @@ class Customer {
                 if ($email === $data['email'] && $password === $data['password']) {
                     $authenticated_user = $user;
                     $authenticated_user['role'] = 'customer';
+                    $authenticated_user['name'] = $data['name'];
                     break;
                 }
             }
@@ -53,6 +54,88 @@ class Customer {
             return ['errors'=> $errors];
         }
 
+    }
+
+    public function deposit($amount)
+    {
+        $data = [
+            'type' => 'deposit',
+            'amount' => $amount,
+            'email' => $_SESSION['user']['email'],
+            'recepient' => 'self',
+            'date' => date("d M Y, h:i a"),
+        ];
+        $filename = "../json/transactions.json";
+        save_json_data($filename, $data);
+    }
+
+    public function withdraw($amount)
+    {
+        $data = [
+            'type' => 'withdraw',
+            'amount' => $amount,
+            'email' => $_SESSION['user']['email'],
+            'recepient' => 'self',
+            'date' => date("d M Y, h:i a"),
+        ];
+        $filename = "../json/transactions.json";
+        save_json_data($filename, $data);
+    }
+
+    public function transfer($request)
+    {
+        $data = [
+            'type' => 'transfer',
+            'amount' => $request['amount'],
+            'email' => $_SESSION['user']['email'],
+            'recepient' => $request['email'],
+            'date' => date("d M Y, h:i a"),
+        ];
+        $filename = "../json/transactions.json";
+        save_json_data($filename, $data);
+    }
+
+    public function transactions()
+    {
+        $email = $_SESSION['user']['email'];
+        $file = "../json/transactions.json";
+        $data_array = [];
+        $transactions = [];
+        if (file_exists($file) && filesize($file) > 0) {
+            $json_data = file_get_contents($file);
+            $data_array = json_decode($json_data, true);
+        }
+        foreach ($data_array as $data) {
+            if ($email === $data['email'] || $email === $data['recepient']) {
+                $transactions[] = $data;
+            }
+        }
+        return $transactions;
+    }
+
+    public function balance()
+    {
+        $email = $_SESSION['user']['email'];
+        $file = "../json/transactions.json";
+        $data_array = [];
+        $balance = 0;
+        if (file_exists($file) && filesize($file) > 0) {
+            $json_data = file_get_contents($file);
+            $data_array = json_decode($json_data, true);
+        }
+        foreach ($data_array as $data) {
+            if ($email === $data['email']) {
+                if($data['type'] === 'deposit') $balance += floatval($data['amount']);
+                else if($data['type'] === 'withdraw' || $data['type'] === 'transfer'){
+                    $balance -= floatval($data['amount']);
+                }
+            } elseif($email === $data['recepient']) {
+                $balance += floatval($data['amount']);
+            }
+
+        }
+        $balance = "$". number_format($balance, 2, '.', ',') ;
+        return $balance;
     }
 }
 

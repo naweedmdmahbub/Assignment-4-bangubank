@@ -1,3 +1,18 @@
+<?php
+  require '../helpers.php';
+  require '../Controllers/Customer.php';
+  $balance = '';
+  session_start();
+  $customer = new Customer();
+  $balance = $customer->balance();
+
+  if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $customer = new Customer();
+    $response = $customer->deposit($_POST['amount']);
+    $balance = $customer->balance();
+  }
+?>
+
 <!DOCTYPE html>
 <html
   class="h-full bg-gray-100"
@@ -240,7 +255,8 @@
                 </dt>
                 <dd
                   class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
-                  $10,115,091.00
+                  <!-- $10,115,091.00 -->
+                  <?php echo $balance; ?>
                 </dd>
               </div>
             </dl>
@@ -254,7 +270,7 @@
                 </h3>
                 <div class="mt-4 text-sm text-gray-500">
                   <form
-                    action="#"
+                    action="deposit.php"
                     method="POST">
                     <!-- Input Field -->
                     <div class="relative mt-2 rounded-md">
@@ -268,6 +284,7 @@
                         id="amount"
                         class="block w-full ring-0 outline-none text-xl pl-4 py-2 sm:pl-8 text-gray-800 border-b border-b-emerald-500 placeholder:text-gray-400 sm:text-4xl"
                         placeholder="0.00"
+                        step="0.01"
                         required />
                     </div>
 
