@@ -1,5 +1,7 @@
 <?php
 // require 'helpers.php';
+// namespace app;
+
 class Customer {
     public function login()
     {
@@ -62,7 +64,8 @@ class Customer {
             'type' => 'deposit',
             'amount' => $amount,
             'email' => $_SESSION['user']['email'],
-            'recepient' => 'self',
+            'receiver_email' => $_SESSION['user']['email'],
+            'receiver' => $_SESSION['user']['name'],
             'date' => date("d M Y, h:i a"),
         ];
         $filename = "../json/transactions.json";
@@ -75,7 +78,8 @@ class Customer {
             'type' => 'withdraw',
             'amount' => $amount,
             'email' => $_SESSION['user']['email'],
-            'recepient' => 'self',
+            'receiver_email' => $_SESSION['user']['email'],
+            'receiver' => $_SESSION['user']['name'],
             'date' => date("d M Y, h:i a"),
         ];
         $filename = "../json/transactions.json";
@@ -84,13 +88,16 @@ class Customer {
 
     public function transfer($request)
     {
+        $user = self::findCustomerByEmail($request['email']);
         $data = [
             'type' => 'transfer',
             'amount' => $request['amount'],
             'email' => $_SESSION['user']['email'],
-            'recepient' => $request['email'],
+            'receiver_email' => $request['email'],
+            'receiver' => $user['name'],
             'date' => date("d M Y, h:i a"),
         ];
+
         $filename = "../json/transactions.json";
         save_json_data($filename, $data);
     }
@@ -106,10 +113,11 @@ class Customer {
             $data_array = json_decode($json_data, true);
         }
         foreach ($data_array as $data) {
-            if ($email === $data['email'] || $email === $data['recepient']) {
+            if ($email === $data['email'] || $email === $data['receiver_email']) {
                 $transactions[] = $data;
             }
         }
+        // dd($transactions);
         return $transactions;
     }
 
@@ -129,13 +137,30 @@ class Customer {
                 else if($data['type'] === 'withdraw' || $data['type'] === 'transfer'){
                     $balance -= floatval($data['amount']);
                 }
-            } elseif($email === $data['recepient']) {
+            } elseif($email === $data['receiver_email']) {
                 $balance += floatval($data['amount']);
             }
 
         }
         $balance = "$". number_format($balance, 2, '.', ',') ;
         return $balance;
+    }
+
+    public function findCustomerByEmail($email)
+    {
+        $file = "../json/users.json";
+        $data_array = [];
+        $json_data = file_get_contents($file);
+        $data_array = json_decode($json_data, true);
+        $user = null;
+        foreach ($data_array as $data) {
+            if ($email === $data['email']) {
+                $user = $data;
+                break;
+            }
+        }
+        // dd($json_data);
+        return $user;
     }
 }
 

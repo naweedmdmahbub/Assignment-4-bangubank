@@ -261,7 +261,7 @@
                 </dt>
                 <dd
                   class="w-full flex-none text-3xl font-medium leading-10 tracking-tight text-gray-900">
-                  $10,115,091.00
+                  <?php echo $balance ?>
                 </dd>
               </div>
             </dl>
@@ -318,27 +318,27 @@
                               <?php echo $transaction['type'] ?>
                             </td>
 
+                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
+                              <?php echo $transaction['receiver'] ?>
+                            </td>
                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
                               <?php if($transaction['type'] === 'deposit' || $transaction['type'] === 'withdraw' ) { ?>
                                 <?php echo $transaction['email'] ?>
                               <?php } else { ?>
-                                  <?php if($transaction['recepient'] === $_SESSION['user']['email'] ) { ?>
+                                  <?php if($transaction['receiver_email'] === $_SESSION['user']['email'] ) { ?>
                                       <?php echo $transaction['email'] ?>
                                   <?php } else { ?>
-                                      <?php echo $transaction['recepient'] ?>
+                                      <?php echo $transaction['receiver_email'] ?>
                                   <?php } ?>
                               <?php } ?>
                             </td>
                     
-                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-800 sm:pl-0">
-                              <?php echo $transaction['email'] ?>
-                            </td>
                             
                             <?php if($transaction['type'] === 'deposit' 
-                                    || ($transaction['type'] === 'transfer' && $transaction['recepient'] === $_SESSION['user']['email']) ) {
+                                    || ($transaction['type'] === 'transfer' && $transaction['receiver_email'] === $_SESSION['user']['email']) ) {
                             ?>
                               <td class="whitespace-nowrap px-2 py-4 text-sm font-medium text-emerald-600">
-                                <?php echo "$". number_format($transaction['amount'], 2, '.', ',') ?>
+                                <?php echo "+$". number_format($transaction['amount'], 2, '.', ',') ?>
                             <?php } else { ?>
                               <td class="whitespace-nowrap px-2 py-4 text-sm font-medium text-red-600">
                                 <?php echo "-$". number_format($transaction['amount'], 2, '.', ',') ?>
