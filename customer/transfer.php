@@ -1,7 +1,6 @@
 <?php
-  require '../helpers.php';
-  require '../Controllers/Customer.php';
-  session_start();
+  require_once '../layout/customer.php';
+  use App\Controllers\Customer;
   $customer = new Customer();
   $balance = $customer->balance();
 

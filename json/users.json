@@ -5,4 +5,16 @@
         "password": "12345678",
         "role": "admin"
     },
+    {
+        "name": "Finn Levy",
+        "email": "loga@mailinator.com",
+        "password": "Pa$$w0rd!",
+        "role": "customer"
+    },
+    {
+        "name": "Adib",
+        "email": "adib@gmail.com",
+        "password": "12345678",
+        "role": "customer"
+    }
 ]

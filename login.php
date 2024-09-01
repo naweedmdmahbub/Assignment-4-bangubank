@@ -1,6 +1,7 @@
 <?php
   require 'helpers.php';
-  require 'Controllers/Customer.php';
+  require_once './vendor/autoload.php';
+  use App\Controllers\Customer;
   $errors = [];
   $emai = $password = '';
   session_start();

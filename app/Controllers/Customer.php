@@ -1,6 +1,6 @@
 <?php
 // require 'helpers.php';
-// namespace app;
+namespace App\Controllers;
 
 class Customer {
     public function login()

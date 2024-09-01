@@ -1,17 +1,6 @@
 <?php
-  session_start();
-  require '../helpers.php';
-  require '../Controllers/Customer.php';
-
-  $base_url = get_base_url();
-  // dd($base_url);
-  // dd($_SESSION);
-  if (!isset($_SESSION['user'])) {
-    header('Location: ../login.php');
-    exit;
-  } else {
-    $user = $_SESSION['user'];
-  }
+  require_once '../layout/customer.php';
+  use App\Controllers\Customer;
 
   $customer = new Customer();
   $balance = $customer->balance();
